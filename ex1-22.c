@@ -1,13 +1,14 @@
 /*************************************************************************
-	> File Name: ex1-20.c
+	> File Name: ex1-22.c
 	> Author: 
 	> Mail: 
-	> Created Time: Fri 05 Aug 2016 08:23:03 AM CST
+	> Created Time: Wed 14 Sep 2016 03:41:20 PM CST
  ************************************************************************/
 
 #include<stdio.h>
 
-#define TABSTOP 4 
+#define COLUMNS 80
+#define TABSTOP 8
 
 int main()
 {
