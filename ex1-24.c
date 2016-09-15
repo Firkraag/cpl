@@ -1,6 +1,6 @@
 /*************************************************************************
 	> File Name: ex1-24.c
-	> Author: 
+	> Author:
 	> Mail: 
 	> Created Time: Thu 15 Sep 2016 10:14:42 AM CST
  ************************************************************************/
@@ -85,7 +85,13 @@ int main() {
             }
         }
         else if (status == SINGLE) {
-            if (c == '\'') {
+            if (c == '\\') {
+                c = getchar(); 
+                if (c == EOF) {
+                    error("unmatched single quote");
+                }
+            }
+            else if (c == '\'') {
                 status = BASE;
             }
             else if (c == '\n') {
@@ -94,7 +100,13 @@ int main() {
             c = getchar();
         }
         else if (status == DOUBLE) {
-            if (c == '"') {
+            if (c == '\\') {
+                c = getchar(); 
+                if (c == EOF) {
+                    error("unmatched double quote");
+                }
+            }
+            else if (c == '"') {
                 status = BASE;
             }
             else if (c == '\n') {
