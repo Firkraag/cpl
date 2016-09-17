@@ -25,3 +25,13 @@ void ungetch(int c) /* push character back on input */
     else
         buf[bufp++] = c;
 }
+
+void ungets(char *s) /* push back an entire string onto the input */
+{
+    int i = 0;
+    int c;
+
+    while ((c = s[i++]) != '\0') {
+        ungetch(c);
+    }
+}

@@ -14,6 +14,10 @@
 int getop(char []);
 void push(double);
 double pop(void);
+double top(void);
+void duplicate(void);
+void swap(void);
+void clear(void);
 
 /* reverse Polish calculator */
 int main()
@@ -50,6 +54,18 @@ int main()
                 push((int) pop() % (int) op2);
             else
                 printf("error: zero divisor\n");
+            break;
+        case 't':
+            printf("The top element of the stack is %f\n", top());
+            break;
+        case 'd':
+            duplicate();
+            break;
+        case 'x':
+            swap();
+            break;
+        case 'c':
+            clear();
             break;
         case '\n':
             printf("\t%.8g\n", pop());

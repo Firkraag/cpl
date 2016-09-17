@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include <stdlib.h> /* for atof() */
+#include <math.h> 
 
 #define MAXOP 100 /* max size of operand or operator */
 #define NUMBER '0' /* signal that a number was found */
@@ -14,6 +15,10 @@
 int getop(char []);
 void push(double);
 double pop(void);
+double top(void);
+void duplicate(void);
+void swap(void);
+void clear(void);
 
 /* reverse Polish calculator */
 int main()
@@ -21,6 +26,7 @@ int main()
     int type;
     double op2;
     char s[MAXOP];
+    double recent = 0.0;
     
     while ((type = getop(s)) != EOF) {
         switch (type) {
@@ -51,8 +57,40 @@ int main()
             else
                 printf("error: zero divisor\n");
             break;
+        case 't':
+            recent = top();
+            printf("The top element of the stack is %f\n", recent);
+            break;
+
+        case 'd':
+            duplicate();
+            break;
+        case 'x':
+            swap();
+            break;
+        case 'c':
+            clear();
+            break;
+        //sin
+        case 's':
+            push(sin(pop()));
+            break;
+        //base-e exponential
+        case 'e':
+            push(exp(pop()));
+            break;
+        //power
+        case 'p':
+            op2 = pop();
+            push(pow(pop(), op2));
+            break;
+        //push the most recently printed value onto stack
+        case 'r':
+            push(recent);
+            break;
         case '\n':
-            printf("\t%.8g\n", pop());
+            recent = pop();
+            printf("\t%.8g\n", recent);
             break;
         default:
             printf("error: unknown command %s\n", s);

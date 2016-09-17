@@ -10,18 +10,23 @@
 #define BUFSIZE 100
 
 /* In order to store EOF, we use type int instead of char */
-int buf[BUFSIZE]; /* buffer for ungetch */
-int bufp = 0; /* next free position in buf */
+int buffer;
+int getFromBuffer = 0;
 
 int getch(void) /* get a (possibly pushed-back) character */
 {
-    return (bufp > 0) ? buf[--bufp] : getchar();
+    if (getFromBuffer) {
+        getFromBuffer = 0;
+        return buffer;
+    }
+    else {
+        return getchar();
+    }
 }
 
 void ungetch(int c) /* push character back on input */
 {
-    if (bufp >= BUFSIZE)
-        printf("ungetch: too many characters\n");
-    else
-        buf[bufp++] = c;
+    getFromBuffer = 1;
+    buffer = c;
 }
+
