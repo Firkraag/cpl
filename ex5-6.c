@@ -30,9 +30,9 @@ int atoi(char *s) {
 	if ((c = *s) == '+' || c == '-')
 		s++;	
 	n = 0;
-	for (n = 0; isdigit(c = *s); s++) 
+	for (n = 0; isdigit(*s); s++) 
 //	while (((c = *s++) >= '0') && (c <= '9'))
-		n = 10 * n + (c - '0');
+		n = 10 * n + (*s - '0');
 	return sign * n;
 }
 
@@ -40,13 +40,13 @@ int atoi(char *s) {
 //pointer version
 void reverse(char *s) {
 	int c;
-	char *end = s + strlen(s) - 1;
+	char *t = s + strlen(s) - 1;
 	
-	while (s < end)
+	while (s < t)
 	{
 		c = *s;
-		*s++ = *end;
-		*end-- = c;
+		*s++ = *t;
+		*t-- = c;
 	}
 }
 
@@ -92,8 +92,16 @@ int getop(char *s) {
 	while ((*s = c = getch()) == ' ' || c == '\t')
 		;
 	*(s + 1) = '\0';
-	if (!isdigit(c) && c != '.')
+    if (c == '-') {
+        *++s = c = getch();
+        if (!isdigit(c) && c != '.') {
+            ungetch(c);
+            return '-';
+        }
+    }
+	else if (!isdigit(c) && c != '.')
 		return c;	/* not a number */
+
 	if (isdigit(c))	/* collect integer part */
 		while (isdigit(*++s = c = getch()))
 			;
@@ -101,8 +109,7 @@ int getop(char *s) {
 		while (isdigit(*++s = c = getch()))
 			;
 	*s = '\0';
-	if (c != EOF)
-		ungetch(c);
+    ungetch(c);
 	return NUMBER;
 }
 
@@ -110,11 +117,12 @@ int getop(char *s) {
 int main(int argc, char *argv[]) {
 	char s[100];
 
-//	printf("%d\n", getline1(s, 5));
-//	printf("%s", s);
-	//printf("%d\n", atoi(argv[1]));
-	//itoa(10000, s);
-	//printf("%s\n", s);
+	//printf("%d\n", getline1(s, 5));
+    getline1(s, 100);
+	printf("%s", s);
+	printf("%d\n", atoi(argv[1]));
+	itoa(10000, s);
+	printf("%s\n", s);
 	printf("%d\n", strindex(argv[1], argv[2]));	
 	return 1;
 }
