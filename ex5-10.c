@@ -1,8 +1,3 @@
-// AUTHOR: WangQiang
-// CREATE DATE:   20140711
-// LAST UPDATE DATE: 20140714
-// EMAIL:  cntqrxj@gmail.com
-
 #include <stdio.h>
 #include <stdlib.h>	/* for atof() */
 #include <math.h>

@@ -41,6 +41,6 @@ void month_day(int year, int yearday, int *pmonth, int *pday) {
 int main(int argc, char *argv[]) {
 	int pmonth, pday;
 
-	month_day(2013, 366, &pmonth, &pday);
+	month_day(2014, 191, &pmonth, &pday);
 	printf("%d, %d, %d\n", day_of_year(atoi(argv[1]), atoi(argv[2]), atoi(argv[3])), pmonth, pday);
 }
