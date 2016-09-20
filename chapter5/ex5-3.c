@@ -4,7 +4,7 @@
 void strcat1(char *s, char *t) {
 	while (*s)	/* find end of s */
 		s++;
-	while (*s++ = *t++)	/* copy t */
+	while ((*(s++) = *(t++)) != '\0')	/* copy t */
 		;
 }
 
