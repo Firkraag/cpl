@@ -1,8 +1,9 @@
 CC = gcc
 CFLAGS = -Wall -O2 -I .
 
-OBJS = getint getfloat strcat strend ex5-5 ex5-6 ex5-7/sort dateConversion dateConversion2
-all: ${OBJS}
+PROGS = getint getfloat strcat strend ex5-5 ex5-6 dir5-7 dateConversion dateConversion2
+
+all: $(PROGS)
 
 getint: ex5-1.o getch.o
 	$(CC) -o getint ex5-1.o getch.o
@@ -20,7 +21,7 @@ ex5-5: ex5-5.o
 
 ex5-6: ex5-6.o getch.o
 
-ex5-7/sort:
+dir5-7:
 	(cd ex5-7; make)
 
 dateConversion: ex5-8.o
