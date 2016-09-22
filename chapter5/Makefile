@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -O2 -I .
 
-PROGS = getint getfloat strcat strend ex5-5 ex5-6 dir5-7 dateConversion dateConversion2 dir5-14 dir5-15
+PROGS = getint getfloat strcat strend ex5-5 ex5-6 dir5-7 dateConversion dateConversion2 dir5-14 dir5-15 dir5-16
 
 all: $(PROGS)
 
@@ -35,3 +35,6 @@ dir5-14:
 
 dir5-15:
 	(cd ex5-15; make)
+
+dir5-16:
+	(cd ex5-16; make)

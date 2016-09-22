@@ -1,7 +1,4 @@
-CC = gcc
-CFLAGS = -Wall -O2 -I .
-
-CHAPTERS = 1 5
+CHAPTERS = 1 5 6 7
 
 all: $(CHAPTERS)
 
@@ -15,4 +12,9 @@ all: $(CHAPTERS)
 	(cd chapter4; make)
 5:
 	(cd chapter5; make)
-
+6:
+	(cd chapter6; make)
+7:
+	(cd chapter7; make)
+8:
+	(cd chapter8; make)
