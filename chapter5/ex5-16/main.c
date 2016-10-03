@@ -59,7 +59,7 @@ int main(int argc, char *argv[]) {
         }
     } 
     if (i != argc) {
-        printf("Usage: sort -n -r\n");
+        printf("Usage: sort [-n] [-r] [-d] [-f]\n");
         return -1;
     }
 
