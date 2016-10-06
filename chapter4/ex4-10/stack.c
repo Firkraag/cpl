@@ -60,7 +60,7 @@ void swap() {
         printf("error: the stack does not have enough elements\n");
     }
     else {
-        int tmp = val[sp - 1];
+        double tmp = val[sp - 1];
         val[sp - 1] = val[sp - 2];
         val[sp - 2] = tmp;
     }

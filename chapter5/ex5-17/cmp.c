@@ -30,7 +30,7 @@ int comp(char *line1, char *line2, int field_options[], int field_compare_size) 
     {
         int numeric = getOption(field_options[i], NUMERIC);
         int reverse = getOption(field_options[i], REVERSE);
-        int (*method) (void *, void *) = (numeric ? numcmp : strcmp); 
+        int (*method)(const char *, const char *) = (numeric ? numcmp : strcmp); 
         int ret = (*method)(field1, field2);
 
         field1 += (strlen(field1) + 1);
