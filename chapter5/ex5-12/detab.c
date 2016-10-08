@@ -9,8 +9,8 @@
 
 void tab2Space(int start, int tabstop);
 
-/* An detab function that accept the shorthand detab -m +n to mean tab stops every n columns,
- * starting at column m. If the tab stop is at column less than m, it will expand to column m.
+/* An detab function that replaces tabs in the input with proper number of blanks to space to the next stop.
+ * Tab stops every n columns, starting at column m. If the tab stop is at column less than m, it will expand to column m.
  * When m = 0, the argument m has no effect and tab stops every n columns
  * When n = 0, this function removes all the tabs in the input 
  * The valid command invoked from the shell is detab [-start] [+tabstop] */

@@ -9,8 +9,10 @@
 
 void space2tab(int start, int tabstop);
 
-/* replaces strings of blanks by the minimum number of tabs and blanks
- * to achieve the same spacing
+/* Replaces strings of blanks by the minimum number of tabs and blanks
+ * to achieve the same spacing.
+ * Tab stops every tabstop columns, starting at column start. If the tab stop is at column less than start, it will expand to column start.
+ * The valid command invoked from the shell is entab [-start] [+tabstop].
  */
 int main(int argc, char *argv[]) {
     int start;

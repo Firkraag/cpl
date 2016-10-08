@@ -7,12 +7,9 @@
 
 #include<stdio.h>
 
-#define BASE 0
-#define COMMENT1 1 // comment style '//'
-#define COMMENT2 2 // comment style '/* ... */'
-#define QUOTE 3
 
 int main() {
+    enum {BASE, COMMENT1, COMMENT2, QUOTE};
     int c;
     int status = BASE;
     
@@ -73,3 +70,4 @@ int main() {
     }
     return 0;
 }
+
