@@ -12,6 +12,9 @@
 void error(void);
 int isNumber(char *string);
 
+/* replaces strings of blanks by the minimum number of tabs and blanks
+ * to achieve the same spacing
+ */
 int main(int argc, char *argv[]) {
     int pos = 0; //The position of current c modulo TABSTOP;
     int c = getchar();

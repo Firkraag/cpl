@@ -7,6 +7,7 @@
 
 #include "sort.h"
 
+
 /* sort input lines */
 int main(int argc, char *argv[]) {
     char *compare[MAXLINES];

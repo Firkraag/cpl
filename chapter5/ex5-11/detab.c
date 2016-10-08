@@ -12,7 +12,8 @@
 void error(void);
 int isNumber(char *string);
 
-
+/*replaces tabs in the input with the proper number of blanks to space to
+the next tab stop */
 int main(int argc, char *argv[])
 {
     int c;
@@ -68,3 +69,4 @@ int isNumber(char *string) {
         return 1;
     }
 }
+
