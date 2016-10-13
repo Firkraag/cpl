@@ -18,3 +18,11 @@ all: $(CHAPTERS)
 	(cd chapter7; make)
 8:
 	(cd chapter8; make)
+
+
+clean:
+	rm -rf *.o *~
+	for no in $(CHAPTERS); do\
+		(cd chapter$$no; make clean);\
+	done
+

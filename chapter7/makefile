@@ -13,3 +13,6 @@ upper: ex7-1.o
 
 minprintf: ex7-3.o
 	$(CC) -o minprintf ex7-3.o
+
+clean:
+	rm -rf $(PROGS) *.o *~

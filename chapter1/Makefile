@@ -58,3 +58,6 @@ removeComment: ex1-23.o
 
 syntaxCheck: ex1-24.o stack.o stack.h
 	$(CC) -o syntaxCheck ex1-24.o stack.o
+
+clean:
+	rm -rf $(PROGS) *.o *~
