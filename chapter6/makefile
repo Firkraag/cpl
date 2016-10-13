@@ -1,8 +1,15 @@
 CC = gcc
 CFLAGS = -Wall -O2 -I .
-PROGS = dir6-1
+DIR = 6-1
+PROGS =
 
-all: $(PROGS)
+all: $(PROGS) $(DIR)
 
-dir6-1:
+6-1:
 	(cd ex6-1; make)
+
+clean:
+	rm -rf $(PROGS) *.o *~
+	for no in $(DIR); do\
+		(cd ex$$no; make clean);\
+	done

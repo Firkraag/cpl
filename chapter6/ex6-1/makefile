@@ -6,4 +6,4 @@ countKeyword: $(OBJS)
 	$(CC) -o $@ $^ 
 
 clean:
-	rm -f countKeyword $(OBJS)
+	rm -f countKeyword $(OBJS) *.o *~
