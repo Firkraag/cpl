@@ -1,5 +1,5 @@
 /*************************************************************************
- * int
+ * 
 	> File Name: getword.c
 	> Author: 
 	> Mail: 
@@ -19,12 +19,55 @@ int getword(char *word, int lim) {
         ;
     if (c != EOF)
         *w++ = c;
-    if (!isalpha(c)) {
+
+    if (c == '#') {
+        while ((c = getch()) != '\n' && c != EOF)
+            ;
+        if (c == EOF)
+            ungetch(c);
+        return '#';
+    }
+    else if (c == '"') {
+        while ((c = getch()) != '"') {
+            if (c == '\\')
+                c = getch();
+        }
+        return '"';
+    }
+    else if (c == '\'') {
+        while ((c = getch()) != '\'') {
+            if (c == '\\')
+                c = getch();
+        }
+        return '\'';
+    }
+    else if (c == '/') {
+        c = getch();
+        if (c == '/') {
+            while ((c = getch()) != '\n' && c != EOF) {
+                ;
+            }
+            if (c == EOF)
+                ungetch(c);
+            return '/';
+        }
+        else if (c == '*') {
+            while (1) {
+                c = getch();
+                if (c == '*') {
+                    c = getch();
+                    if (c == '/')
+                        return '/';
+                }
+            }
+        }
+    }
+    else if (!isalpha(c) && (c != '_')) {
         *w = '\0';
         return c;
     }
     for ( ; --lim > 0; w++)
-        if (!isalnum(*w = getch())) {
+        if (!isalnum(*w = getch()) && (*w != '_')) {
             ungetch(*w);
             break;
         }
