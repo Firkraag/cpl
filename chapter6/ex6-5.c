@@ -42,7 +42,6 @@ struct nlist *install(char *name, char *defn)
 {
     struct nlist *np;
     unsigned hashval;
-    struct nlist *head;
 
     if ((np = lookup(name)) == NULL) { /* not found */
         np = (struct nlist *) malloc(sizeof(*np));
@@ -62,9 +61,6 @@ struct nlist *install(char *name, char *defn)
 }
 
 void undef(char *name) {
-    struct nlist *prev;
-    struct nlist *next;
-    struct nlist *node;
     unsigned hashval = hash(name);
     struct nlist *np;
 
