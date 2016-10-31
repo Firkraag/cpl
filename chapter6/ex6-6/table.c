@@ -19,6 +19,12 @@ static unsigned hash(char *s)
     return hashval % HASHSIZE;
 }
 
+void freeNode(struct nlist *np) {
+    free(np->name);
+    free(np->defn);
+    free(np);
+}
+
 /* lookup: look for s in hashtab */
 static struct nlist *lookup(char *s)
 {
@@ -66,6 +72,7 @@ void undef(char *name) {
         if (np->next != NULL)
             np->next->prev = np->prev;
         
+        freeNode(np);
     }
 }
 
@@ -74,13 +81,12 @@ void freeTable() {
         struct nlist *np = hashtab[i];
         while (np != NULL) {
             struct nlist *temp = np->next;
-            free(np->name);
-            free(np->defn);
-            free(np);
+            freeNode(np);
             np = temp;
         }
     }
 }
+
 
 void printTable() 
 {

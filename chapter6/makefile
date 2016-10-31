@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -O2 -I .
-DIR = 6-1
+DIR = 6-1 6-3 6-4
 PROGS =
 
 all: $(PROGS) $(DIR)

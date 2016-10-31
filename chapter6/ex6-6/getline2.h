@@ -9,6 +9,6 @@
 #define _GETLINE2_H
 #endif
 
-#define MAXLINE 50 /* maximum input line length */
+#define MAXLINE 1000 /* maximum input line length */
 
 int getline2(char s[], int size);

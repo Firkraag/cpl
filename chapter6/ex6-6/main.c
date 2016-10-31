@@ -10,14 +10,12 @@
 int main() {
     int len; /* current line length */
     char line[MAXLINE]; /* current input line */
-    char *name = NULL, *replace = NULL;
+    char *name, *replace;
 
     while ((len = getline2(line, MAXLINE)) > 0) {
         if (parseLine(line, &name, &replace))
         {
             install(name, replace);
-            free(name);
-            free(replace);
         }
     }
     printTable();
