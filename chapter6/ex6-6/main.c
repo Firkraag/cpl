@@ -5,19 +5,7 @@
 	> Created Time: Sun 30 Oct 2016 10:05:11 PM CST
  ************************************************************************/
 
-#include<stdio.h>
-#include "getline2.h"
-
-struct nlist { /* table entry: */
-    struct nlist *prev; /* prev entry in chain */
-    struct nlist *next; /* next entry in chain */
-    char *name; /* defined name */
-    char *defn; /* replacement text */
-};
-int parseLine(char *line, char **name, char **replace);
-struct nlist *install(char *name, char *defn);
-void printTable();
-void undef(char *name);
+#include "preProcessor.h"
 
 int main() {
     int len; /* current line length */
@@ -28,7 +16,10 @@ int main() {
         if (parseLine(line, &name, &replace))
         {
             install(name, replace);
+            free(name);
+            free(replace);
         }
     }
     printTable();
+    freeTable();
 }

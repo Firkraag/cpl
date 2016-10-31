@@ -5,31 +5,13 @@
 	> Created Time: Sun 30 Oct 2016 07:37:57 PM CST
  ************************************************************************/
 
-#include<stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "preProcessor.h"
 #define HASHSIZE 101
 
-struct nlist { /* table entry: */
-    struct nlist *prev; /* prev entry in chain */
-    struct nlist *next; /* next entry in chain */
-    char *name; /* defined name */
-    char *defn; /* replacement text */
-};
 static struct nlist *hashtab[HASHSIZE]; /* pointer table */
 
-void printTable() 
-{
-    for (int i = 0; i < HASHSIZE; i++) {
-        struct nlist *np = hashtab[i];
-        while (np != NULL) {
-            printf("%s:\t%s\n", np->name, np->defn);
-            np = np->next;
-        }
-    }
-}
 /* hash: form hash value for string s */
-unsigned hash(char *s)
+static unsigned hash(char *s)
 {
     unsigned hashval;
     for (hashval = 0; *s != '\0'; s++)
@@ -38,7 +20,7 @@ unsigned hash(char *s)
 }
 
 /* lookup: look for s in hashtab */
-struct nlist *lookup(char *s)
+static struct nlist *lookup(char *s)
 {
     struct nlist *np;
     for (np = hashtab[hash(s)]; np != NULL; np = np->next)
@@ -84,5 +66,29 @@ void undef(char *name) {
         if (np->next != NULL)
             np->next->prev = np->prev;
         
+    }
+}
+
+void freeTable() {
+    for (int i = 0; i < HASHSIZE; i++) {
+        struct nlist *np = hashtab[i];
+        while (np != NULL) {
+            struct nlist *temp = np->next;
+            free(np->name);
+            free(np->defn);
+            free(np);
+            np = temp;
+        }
+    }
+}
+
+void printTable() 
+{
+    for (int i = 0; i < HASHSIZE; i++) {
+        struct nlist *np = hashtab[i];
+        while (np != NULL) {
+            printf("%s:\t%s\n", np->name, np->defn);
+            np = np->next;
+        }
     }
 }
