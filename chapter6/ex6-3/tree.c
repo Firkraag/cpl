@@ -1,19 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include "dynamic_list.h"
-
-struct tnode { 
-    char *word;
-    DL *dl;
-    struct tnode *left;
-    struct tnode *right;
-};
-
-extern int lineno;
-
-struct tnode *talloc(void);
-char *strdup2(char *s); /* make a duplicate of s */
+#include "countWord.h"
 
 /* addtree: add a node with w, at or below p */
 struct tnode *addtree(struct tnode *p, char *w)
@@ -22,7 +7,7 @@ struct tnode *addtree(struct tnode *p, char *w)
 
     if (p == NULL) { /* a new word has arrived */
         p = talloc(); /* make a new node */
-        p->word = strdup2(w);
+        p->word = strdup(w);
         p->dl = initDL();
         append(p->dl, lineno);
         p->left = p->right = NULL;
@@ -65,15 +50,6 @@ struct tnode *talloc(void)
     return (struct tnode *) malloc(sizeof(struct tnode));
 }
 
-char *strdup2(char *s) /* make a duplicate of s */
-{
-    char *p; 
-
-    p = (char *) malloc(strlen(s)+1); /* +1 for '\0' */
-    if (p != NULL)
-        strcpy(p, s);
-    return p;
-}
 
 void free_tree(struct tnode *node) {
     if (node != NULL) {

@@ -5,18 +5,9 @@
 	> Created Time: Thu 27 Oct 2016 09:34:51 PM CST
  ************************************************************************/
 
-#include <stdio.h>
-#include <ctype.h>
-#include <string.h>
-#include "dynamic_list.h"
-
+#include "countWord.h"
 #define MAXWORD 100
 
-struct tnode *addtree(struct tnode *, char *);
-void treeprint(struct tnode *);
-int getword(char *, int);
-int binsearch(char *word, char *noise[], int n); 
-void free_tree(struct tnode *node);
 
 char *noise[] = {
     "and", "or", "the"
@@ -24,12 +15,6 @@ char *noise[] = {
 
 #define NWORD (sizeof noise / sizeof(char *))
 
-struct tnode { 
-    char *word;
-    DL *dl;
-    struct tnode *left;
-    struct tnode *right;
-};
 int lineno = 1;
 
 int main()
