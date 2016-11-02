@@ -6,6 +6,7 @@ void minprintf(char *fmt, ...) {
 	va_list ap;
 	char *p, *sval;
 	int ival;
+    unsigned uval;
 	double dval;
 	void *ptr;
 
@@ -16,27 +17,29 @@ void minprintf(char *fmt, ...) {
 			continue;
 		}
 		switch (*++p) {
+        case '%':
+            putchar('%');
+            break;
 		case 'd':
 		case 'i':
 			ival = va_arg(ap, int);
 			printf("%d", ival);
 			break;
 		case 'o':
-			ival = va_arg(ap, int);
-			printf("%o", ival);
+			uval = va_arg(ap, unsigned);
+			printf("%o", uval);
 			break;
 		case 'x':
 		case 'X':
-			ival = va_arg(ap, int);
-			printf("%x", ival);
+			uval = va_arg(ap, unsigned);
+			printf("%x", uval);
 			break;
 		case 'u':
-			ival = va_arg(ap, int);
-			printf("%u", ival);
+			uval = va_arg(ap, unsigned);
+			printf("%u", uval);
 			break;
 		case 'c':
-			ival = va_arg(ap, int);
-			putchar(ival);
+			putchar(va_arg(ap, int));
 			break;
 		case 's':
 			for (sval = va_arg(ap, char *); *sval; sval++)
@@ -68,6 +71,3 @@ void minprintf(char *fmt, ...) {
 	va_end(ap);
 }
 
-int main(int argc, char *argv[]) {
-   minprintf("%d, 0%o, 0x%x, %u, %c, %s, %f, %e, %g, %p\n", atoi(argv[1]), atoi(argv[2]), atoi(argv[3]), atoi(argv[4]), argv[5][0], argv[6], atof(argv[7]), atof(argv[8]), atof(argv[9]), argv); 
-}

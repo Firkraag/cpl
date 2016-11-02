@@ -10,10 +10,11 @@
 int main() {
     int len; /* current line length */
     char line[MAXLINE]; /* current input line */
-    char *name, *replace;
+    char first[MAXLINE], name[MAXLINE], replace[MAXLINE];
 
     while ((len = getline2(line, MAXLINE)) > 0) {
-        if (parseLine(line, &name, &replace))
+        /* If the input line has at least three fields and the first field is "#define" */
+        if (sscanf(line, "%s %s %s", first, name, replace) == 3 && !strcmp(first, "#define"))
         {
             install(name, replace);
         }

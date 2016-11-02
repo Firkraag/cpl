@@ -12,10 +12,10 @@ int main(int argc, char *argv[]) {
 	int c;
 	int count = 0;
 	while ((c = getchar()) != EOF) {
-		if (c < 0x20 || c == 0x7f)
-			printf("0x%x ", c);
-		else
-			putchar(c);
+        if (isprint(c))
+            putchar(c);
+        else
+            printf(" 0x%x ", c);
 		count++;
 		if (count == 80) {
 			putchar('\n');

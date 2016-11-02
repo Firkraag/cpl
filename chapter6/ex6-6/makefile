@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -O2 -I . -g
-OBJS = main.o  parseLine.o table.o getline2.o
+OBJS = main.o table.o getline2.o
 
 prePrecessor: $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $^ 
