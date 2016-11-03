@@ -22,7 +22,7 @@ int main(int argc, char *argv[]) {
 	int c, except = 0, number = 0, found = 0;
 
 	while (--argc > 0 && (*++argv)[0] == '-')
-		while (c = *++argv[0])
+		while ((c = *++argv[0]))
 			switch(c) {
 			case 'x':
 				except = 1;
