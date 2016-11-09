@@ -1,24 +1,9 @@
-CHAPTERS = 1 5 6 7
+CHAPTERS = 1 2 3 4 5 6 7 8
 
 all: $(CHAPTERS)
 
-1: 
-	(cd chapter1; make)
-2: 
-	(cd chapter2; make)
-3: 
-	(cd chapter3; make)
-4: 
-	(cd chapter4; make)
-5:
-	(cd chapter5; make)
-6:
-	(cd chapter6; make)
-7:
-	(cd chapter7; make)
-8:
-	(cd chapter8; make)
-
+$(CHAPTERS):
+	(cd chapter$@; make)
 
 clean:
 	rm -rf *.o *~

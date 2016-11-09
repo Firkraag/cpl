@@ -7,7 +7,6 @@ void swap(char v[], int i, int j) {
 	v[j] = temp;
 }
 void reverse(int left, int right, char s[]) {
-	int i = 0, j = 0;
 	if (left >= right)
 		return;
 	else

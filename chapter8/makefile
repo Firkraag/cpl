@@ -19,7 +19,7 @@ test: test.o $(LIB)
 $(LIB): $(OBJS)
 	ar rcs $(LIB) $(OBJS)
 
-8-5::
+8-5:
 	(cd ex8-5; make)
 
 clean:

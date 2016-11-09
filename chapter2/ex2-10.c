@@ -4,3 +4,10 @@ int lower(int c) {
 	return (c >= 'A' && c <= 'Z') ? c + 'a' - 'A' : c;
 }
 
+int main() {
+	int c;
+	for (c = 'A';c <= 'Z'; c++)
+		printf("%c ", lower(c));
+	printf("\n");
+}
+

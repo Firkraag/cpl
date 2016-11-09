@@ -6,7 +6,7 @@ unsigned setbits(unsigned x,int p,int n,unsigned y) {
 	x  = x & ~bit;
     printf("test 0x%x\n", x);
 	y = (y << (p-n+1)) & bit;
-    printf("test 0x%x\n", y)
+    printf("test 0x%x\n", y);
 	return x | y;
 
 }
