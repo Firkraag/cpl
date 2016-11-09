@@ -2,6 +2,7 @@ CC = gcc
 CFLAGS = -Wall -O2 -I . 
 
 OBJS= polish.o getop.o stack.o
+PROG = calculator
 
 calculator: $(OBJS)
 	$(CC) $(CFLAGS) -o calculator $(OBJS) -lm
