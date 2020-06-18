@@ -24,7 +24,7 @@ char out[1000];/* output string */
 
 int main()/* convert declaration to words */
 {
-    while (gettoken() != EOF) {/* 1st token on line */
+    while (printf("Please enter a declaration: "), gettoken() != EOF) {/* 1st token on line */
         strcpy(datatype, token);/* is the datatype */
         out[0] = '\0';
         dcl();/* parse rest of line */
