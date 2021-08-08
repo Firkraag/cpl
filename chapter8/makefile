@@ -8,10 +8,9 @@ OBJS = fclose.o fopen.o fflush.o fillbuf.o flushbuf.o fgets.o getline.o\
 DIR = 8-5
 
 
-all: $(PROGS) $(OBJS) $(DIR)
+all: $(PROGS) $(DIR)
 
 cat: ex8-1.o
-	$(CC) $(CFLAGS) -o cat ex8-1.o
 
 test: test.o $(LIB)
 	$(CC) $(CFLAGS) -static -o $@ $^
