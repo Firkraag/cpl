@@ -1,6 +1,6 @@
 CC = gcc
 INC = ../../include/
-CFLAGS = -Wall -O2 -I . -I $(INC) -lm
+CFLAGS = -Wall -O2 -I . -I $(INC)
 
 
 polish: polish.o getop.o stack.o

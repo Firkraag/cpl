@@ -1,7 +1,5 @@
 #include <stdio.h>
 #include <limits.h>
-#include <float.h>
-#include <string.h>
 
 //Determine the ranges of char, short, int, and long variables, both signed and unsigned
 int main() {

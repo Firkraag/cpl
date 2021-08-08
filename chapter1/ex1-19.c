@@ -39,7 +39,7 @@ int main()
 void reverse(char s[], int len)
 {
     int i = 0;
-    int j = len - 1;;
+    int j = len - 1;
     int tmp;
 
     while (i < j)

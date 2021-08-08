@@ -4,7 +4,8 @@
 	> Mail: 
 	> Created Time: Thu 06 Oct 2016 03:41:13 PM CST
  ************************************************************************/
-
+#include "stdio.h"
+#include "stdlib.h"
 #include "tab.h"
 
 /* Parse command argments read from the shell, filling m, n with starting column and tabstop.

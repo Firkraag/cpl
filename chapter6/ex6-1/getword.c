@@ -30,14 +30,14 @@ int getword(char *word, int lim) {
     else if (c == '"') {
         while ((c = getch()) != '"') {
             if (c == '\\')
-                c = getch();
+                getch();
         }
         return '"';
     }
     else if (c == '\'') {
         while ((c = getch()) != '\'') {
             if (c == '\\')
-                c = getch();
+                getch();
         }
         return '\'';
     }
@@ -45,7 +45,7 @@ int getword(char *word, int lim) {
         c = getch();
         if (c == '/') {
             while ((c = getch()) != '\n' && c != EOF) {
-                ;
+
             }
             if (c == EOF)
                 ungetch(c);

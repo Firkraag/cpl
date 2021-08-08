@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdarg.h>
-#include <stdlib.h>
 
 void minprintf(char *fmt, ...) {
 	va_list ap;

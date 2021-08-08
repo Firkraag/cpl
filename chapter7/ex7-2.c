@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <ctype.h>
-#include <string.h>
 
-int main(int argc, char *argv[]) {
+int main(void) {
 //	int i;
 //
 //	for (i = 0x0;i <= 0x7f; i++) {

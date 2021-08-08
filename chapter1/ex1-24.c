@@ -48,17 +48,17 @@ int main() {
                 c = getchar();
             }
             else if (c == '}') {
-                if (empty() || (c = pop()) != '{') 
+                if (empty() || pop() != '{')
                     error("unmatched braces");
                 c = getchar();
             }
             else if (c == ']') {
-                if (empty() || (c = pop()) != '[') 
+                if (empty() || pop() != '[')
                     error("unmatched brackets");
                 c = getchar();
             }
             else if (c == ')') {
-                if (empty() || (c = pop()) != '(') 
+                if (empty() || pop() != '(')
                     error("unmatched parentheses");
                 c = getchar();
             }
@@ -99,7 +99,7 @@ int main() {
             }
             c = getchar();
         }
-        else if (status == DOUBLE) {
+        else {
             if (c == '\\') {
                 c = getchar(); 
                 if (c == EOF) {
@@ -114,9 +114,6 @@ int main() {
             }
             c = getchar();
 
-        }
-        else {
-            c = getchar();
         }
     }
     if (status != BASE && status != COMMENT1) {

@@ -54,7 +54,6 @@ int main(int argc, char *argv[]) {
 	}
 	else {
 		FILE *fp;
-		char *flag;
 		while (argc-- > 0) {
 			lineno = 0;
 			fp = fopen(*argv, "r");
@@ -62,7 +61,7 @@ int main(int argc, char *argv[]) {
 				fprintf(stderr, "Open file %s error\n", *argv++);
 				continue;
 			}
-			while ((flag = fgets(line, MAXLINE, fp)) != NULL) {
+			while (fgets(line, MAXLINE, fp) != NULL) {
 				lineno++;
 				if ((strstr(line, pattern) != NULL) != except) {
 					printf("%s:", *argv);

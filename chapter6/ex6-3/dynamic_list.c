@@ -5,9 +5,7 @@
 	> Created Time: Mon 12 Sep 2016 08:52:11 PM CST
  ************************************************************************/
 
-#include<stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include "dynamic_list.h"
 
 DL *initDL() {

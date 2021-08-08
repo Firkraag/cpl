@@ -6,10 +6,8 @@
  ************************************************************************/
 
 #include<stdio.h>
-#include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-#include <stdlib.h>
 
 #define MAXLINE 30
 #define PAGESIZE 20

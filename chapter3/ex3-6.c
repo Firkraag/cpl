@@ -34,7 +34,6 @@ void itoa(int n, char s[], int width) {
 	if (sign < 0)
 		s[i++] = '-';
 
-	blanks = width - i;
     for (blanks = width - i; blanks > 0; blanks--) {
         s[i++] = ' ';
     }
